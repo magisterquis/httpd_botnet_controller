@@ -20,7 +20,6 @@ export TASKING_DIR=$TMPDIR/tasking
 export HTTPDLOGFILE=$TMPDIR/log
 export LAST_DIR=$TMPDIR/bots
 export TAILFLAGS="-n +0"
-CHECKIN_PATH=httpd_botnet_controller
 trap 'rm -rf "$TMPDIR"' EXIT
 if ! mkdir -p "$TASKING_DIR" "$LAST_DIR"; then
         echo "Failed to make needed directories, bailing" >&2
