@@ -19,6 +19,9 @@ mkdir -p "$LAST_DIR"
 touch "$TASKING_DIR/_test" && rm "$TASKING_DIR/_test"
 touch "$LAST_DIR/_test" && rm "$LAST_DIR/_test"
 
+# Note we're starting
+echo "$(date) - Watching for check-ins..."
+
 tail ${TAILFLAGS} "$HTTPDLOGFILE"           | # Watch httpd(8)'s logs.
 egrep -o --line-buffered                    \
         "GET /$CHECKIN_PATH/[a-zA-Z0-9.-]+" | # Only want check-ins.
@@ -30,10 +33,11 @@ while read; do                                # Handle each check-in.
                 continue
         fi
         # Note this bot checked in.
-        echo "$(date) - $ID - Check-in"
         touch "$LAST_DIR/$ID"
         # Remove any tasking for the bot.
         if [ -f "$TASKING_DIR/$ID" ]; then
                 echo "$(date) - $ID - Sent $(rm -v $TASKING_DIR/$ID)"
+        else
+                echo "$(date) - $ID - Check-in"
         fi
 done
