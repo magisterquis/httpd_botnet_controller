@@ -67,7 +67,7 @@ Setup
     ```
 5.  Clone this repository and start the controller going.  
     ```sh
-    git clone git@github.com:magisterquis/httpd_botnet_controller.git
+    git clone https://github.com/magisterquis/httpd_botnet_controller.git
     cd httpd_botnet_controller
     make # To run tests, optional
     ./httpd_botnet_controller.sh
