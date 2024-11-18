@@ -38,7 +38,8 @@ tap_ok $? "Wrote httpd log"
 tap_ok $? "Simple check-in not checked in"
 GOT=$(./httpd_botnet_controller.sh 2>&1 | cut -f 2- -d -)
 tap_ok $? "Simple log read"
-WANT=" kittens - Check-in"
+WANT=" Watching for check-ins...
+ kittens - Check-in"
 tap_cmp "$GOT" "$WANT" "Simple check-in logged"
 [[ -f "$LAST_DIR/$ID" ]]
 tap_ok $? "Simple check-in checked in"
@@ -53,7 +54,7 @@ tap_ok $? "Wrote tasked tasking file"
 tap_ok $? "Tasked check-in already checked in"
 GOT=$(./httpd_botnet_controller.sh 2>&1 | cut -f 2- -d -)
 tap_ok $? "Tasked log read"
-WANT=" kittens - Check-in
+WANT=" Watching for check-ins...
  kittens - Sent $TASKING_DIR/$ID"
 tap_cmp "$GOT" "$WANT" "Tasked check-in logged"
 [[ -f "$LAST_DIR/$ID" ]]
@@ -71,7 +72,8 @@ tap_ok $? "Created check-in before file"
 tap_ok $? "Check-in before file exists"
 GOT=$(./httpd_botnet_controller.sh 2>&1 | cut -f 2- -d -)
 tap_ok $? "Check-in log read"
-WANT=" kittens - Check-in"
+WANT=" Watching for check-ins...
+ kittens - Check-in"
 tap_cmp "$GOT" "$WANT" "Check-in logged"
 [[ -f "$LAST_DIR/$ID" ]]
 tap_ok $? "Check-in checked in"
