@@ -65,7 +65,12 @@ Setup
     ```sh
     touch /var/www/htdocs/httpd_botnet_controller/_empty
     ```
-5.  Clone this repository and start the controller going.  
+5.  Start `httpd(8)` if it's not already running.
+    ```sh
+    rcctl enable httpd && rcctl start httpd
+    ```
+
+6.  Clone this repository and start the controller going.
     ```sh
     git clone https://github.com/magisterquis/httpd_botnet_controller.git
     cd httpd_botnet_controller
